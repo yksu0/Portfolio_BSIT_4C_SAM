@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0b1e"/>
+      <stop offset="50%" stop-color="#1a0a2e"/>
+      <stop offset="100%" stop-color="#0b0b1e"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="30%" cy="40%" r="40%">
+      <stop offset="0%" stop-color="#ff3ea5" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="transparent" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="70%" cy="60%" r="35%">
+      <stop offset="0%" stop-color="#00f5ff" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="transparent" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <rect width="1920" height="1080" fill="url(#glow1)"/>
+  <rect width="1920" height="1080" fill="url(#glow2)"/>
+  <!-- City skyline silhouette -->
+  <g fill="#0d0d25" opacity="0.7">
+    <rect x="100" y="700" width="80" height="380"/>
+    <rect x="200" y="600" width="60" height="480"/>
+    <rect x="280" y="750" width="90" height="330"/>
+    <rect x="400" y="550" width="70" height="530"/>
+    <rect x="490" y="650" width="100" height="430"/>
+    <rect x="620" y="500" width="60" height="580"/>
+    <rect x="700" y="620" width="80" height="460"/>
+    <rect x="810" y="480" width="90" height="600"/>
+    <rect x="920" y="580" width="70" height="500"/>
+    <rect x="1020" y="520" width="100" height="560"/>
+    <rect x="1140" y="600" width="60" height="480"/>
+    <rect x="1220" y="450" width="80" height="630"/>
+    <rect x="1320" y="550" width="90" height="530"/>
+    <rect x="1430" y="650" width="70" height="430"/>
+    <rect x="1520" y="500" width="100" height="580"/>
+    <rect x="1650" y="600" width="80" height="480"/>
+    <rect x="1750" y="700" width="90" height="380"/>
+  </g>
+  <!-- Neon window lights -->
+  <g opacity="0.8">
+    <rect x="115" y="720" width="8" height="8" fill="#ff3ea5"/>
+    <rect x="135" y="740" width="8" height="8" fill="#00f5ff"/>
+    <rect x="145" y="780" width="8" height="8" fill="#ff3ea5"/>
+    <rect x="220" y="630" width="8" height="8" fill="#00f5ff"/>
+    <rect x="230" y="670" width="8" height="8" fill="#c94ef0"/>
+    <rect x="420" y="580" width="8" height="8" fill="#ff3ea5"/>
+    <rect x="440" y="620" width="8" height="8" fill="#00f5ff"/>
+    <rect x="640" y="530" width="8" height="8" fill="#ffe94a"/>
+    <rect x="830" y="510" width="8" height="8" fill="#ff3ea5"/>
+    <rect x="850" y="550" width="8" height="8" fill="#00f5ff"/>
+    <rect x="1040" y="550" width="8" height="8" fill="#c94ef0"/>
+    <rect x="1060" y="590" width="8" height="8" fill="#ff3ea5"/>
+    <rect x="1240" y="480" width="8" height="8" fill="#00f5ff"/>
+    <rect x="1260" y="520" width="8" height="8" fill="#ffe94a"/>
+    <rect x="1540" y="530" width="8" height="8" fill="#ff3ea5"/>
+    <rect x="1560" y="570" width="8" height="8" fill="#00f5ff"/>
+  </g>
+  <!-- Horizon glow line -->
+  <line x1="0" y1="880" x2="1920" y2="880" stroke="#ff3ea5" stroke-width="1" opacity="0.3"/>
+  <line x1="0" y1="882" x2="1920" y2="882" stroke="#00f5ff" stroke-width="0.5" opacity="0.2"/>
+</svg>

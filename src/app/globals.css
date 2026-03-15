@@ -1,30 +1,161 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0b0b1e;
+  --foreground: #f0ecff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  /* Cyberpunk core backgrounds */
+  --color-void: #0b0b1e;
+  --color-deep: #0e0e2a;
+  --color-panel: #1a1a3e;
+  --color-panel-light: #252550;
+  --color-surface: #12122a;
+
+  /* Neon palette - brighter for readability */
+  --color-neon-pink: #ff3ea5;
+  --color-neon-cyan: #00f5ff;
+  --color-neon-purple: #c94ef0;
+  --color-neon-yellow: #ffe94a;
+  --color-neon-green: #50ff30;
+  --color-hot-pink: #ff80d5;
+
+  /* Text - much brighter for readability */
+  --color-text: #f0ecff;
+  --color-text-dim: #c4bde6;
+  --color-text-muted: #9d93c8;
+
+  /* Borders */
+  --color-border-cyber: #3a3a6a;
+
+  --font-display: var(--font-orbitron);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-* {
-  scroll-behavior: smooth;
+html {
+  scroll-behavior: auto;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  overflow: hidden;
+  height: 100vh;
 }
+
+/* Snap scroll container */
+.snap-container {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+.snap-section {
+  scroll-snap-align: start;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Section background image system */
+.section-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+.section-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 11, 30, 0.82);
+  z-index: 1;
+}
+
+/* Scanline overlay */
+.scanlines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.04) 2px,
+    rgba(0, 0, 0, 0.04) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Retro grid pattern */
+.cyber-grid {
+  background-image:
+    linear-gradient(rgba(0, 240, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.07) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Neon text glows */
+.neon-pink {
+  text-shadow: 0 0 7px #ff3ea5, 0 0 12px #ff3ea5, 0 0 25px #ff3ea5;
+}
+.neon-cyan {
+  text-shadow: 0 0 7px #00f5ff, 0 0 12px #00f5ff, 0 0 25px #00f5ff;
+}
+.neon-purple {
+  text-shadow: 0 0 7px #c94ef0, 0 0 12px #c94ef0, 0 0 25px #c94ef0;
+}
+
+/* Neon box glows */
+.glow-pink {
+  box-shadow: 0 0 18px rgba(255, 62, 165, 0.45), inset 0 0 18px rgba(255, 62, 165, 0.06);
+}
+.glow-cyan {
+  box-shadow: 0 0 18px rgba(0, 245, 255, 0.45), inset 0 0 18px rgba(0, 245, 255, 0.06);
+}
+.glow-purple {
+  box-shadow: 0 0 18px rgba(201, 78, 240, 0.45), inset 0 0 18px rgba(201, 78, 240, 0.06);
+}
+
+/* Flicker animation (neon sign effect) */
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+  20%, 24%, 55% { opacity: 0.7; }
+}
+.animate-flicker {
+  animation: flicker 3s infinite;
+}
+
+/* Pulse glow */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 15px rgba(0, 245, 255, 0.3); }
+  50% { box-shadow: 0 0 30px rgba(0, 245, 255, 0.6), 0 0 60px rgba(0, 245, 255, 0.2); }
+}
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(90deg, #ff3ea5, #00f5ff, #c94ef0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Custom scrollbar - hidden for snap scroll */
+.snap-container::-webkit-scrollbar { width: 0; }
+.snap-container { -ms-overflow-style: none; scrollbar-width: none; }

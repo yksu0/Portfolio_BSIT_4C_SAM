@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0b0b1e"/>
+      <stop offset="50%" stop-color="#120a22"/>
+      <stop offset="100%" stop-color="#0b0b1e"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="50%" cy="50%" r="45%">
+      <stop offset="0%" stop-color="#ff3ea5" stop-opacity="0.08"/>
+      <stop offset="50%" stop-color="#c94ef0" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="transparent" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <rect width="1920" height="1080" fill="url(#glow1)"/>
+  <!-- Rain-like vertical lines -->
+  <g stroke="#00f5ff" stroke-width="0.5" opacity="0.08">
+    <line x1="120" y1="0" x2="120" y2="400"/>
+    <line x1="320" y1="100" x2="320" y2="600"/>
+    <line x1="480" y1="50" x2="480" y2="350"/>
+    <line x1="700" y1="0" x2="700" y2="500"/>
+    <line x1="900" y1="200" x2="900" y2="700"/>
+    <line x1="1100" y1="0" x2="1100" y2="400"/>
+    <line x1="1300" y1="100" x2="1300" y2="550"/>
+    <line x1="1500" y1="0" x2="1500" y2="450"/>
+    <line x1="1700" y1="150" x2="1700" y2="600"/>
+    <line x1="1850" y1="0" x2="1850" y2="380"/>
+  </g>
+  <!-- Signal wave pattern -->
+  <path d="M0,800 Q240,750 480,800 T960,800 T1440,800 T1920,800" stroke="#ff3ea5" stroke-width="1" fill="none" opacity="0.1"/>
+  <path d="M0,820 Q240,780 480,820 T960,820 T1440,820 T1920,820" stroke="#c94ef0" stroke-width="0.5" fill="none" opacity="0.08"/>
+  <!-- Corner brackets -->
+  <g stroke="#00f5ff" stroke-width="1" fill="none" opacity="0.1">
+    <path d="M50,50 L50,120 M50,50 L120,50"/>
+    <path d="M1870,50 L1870,120 M1870,50 L1800,50"/>
+    <path d="M50,1030 L50,960 M50,1030 L120,1030"/>
+    <path d="M1870,1030 L1870,960 M1870,1030 L1800,1030"/>
+  </g>
+</svg>

@@ -4,45 +4,49 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
+  { name: "About", id: "about" },
+  { name: "Skills", id: "skills" },
+  { name: "Projects", id: "projects" },
+  { name: "Contact", id: "contact" },
 ];
 
-export default function Navbar() {
+export default function Navbar({ scrollTo }) {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleNav = (id) => {
+    if (scrollTo) scrollTo(id);
+    setMenuOpen(false);
+  };
 
   return (
     <motion.nav
       initial={{ y: -80 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-gray-950/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800"
+      className="fixed top-0 left-0 w-full z-50 backdrop-blur-md border-b"
+      style={{ background: "rgba(11,11,30,0.88)", borderColor: "rgba(255,62,165,0.25)" }}
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#" className="text-xl font-bold text-gray-900 dark:text-white">
-          Portfolio
-        </a>
+        <button onClick={() => handleNav("about")} className="text-xl font-bold font-display text-neon-pink neon-pink">
+          PORTFOLIO
+        </button>
 
-        {/* Desktop Links */}
         <ul className="hidden md:flex gap-8">
           {navLinks.map((link) => (
             <li key={link.name}>
-              <a
-                href={link.href}
-                className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium"
+              <button
+                onClick={() => handleNav(link.id)}
+                className="text-text-dim hover:text-neon-cyan transition-colors font-mono text-sm uppercase tracking-wider"
               >
                 {link.name}
-              </a>
+              </button>
             </li>
           ))}
         </ul>
 
-        {/* Mobile Menu Button */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden text-gray-700 dark:text-gray-300 focus:outline-none"
+          className="md:hidden text-neon-cyan focus:outline-none"
           aria-label="Toggle menu"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -55,24 +59,23 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.ul
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800 px-6 overflow-hidden"
+            className="md:hidden bg-deep px-6 overflow-hidden"
+            style={{ borderTop: "1px solid rgba(255,62,165,0.25)" }}
           >
             {navLinks.map((link) => (
               <li key={link.name}>
-                <a
-                  href={link.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="block py-3 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium"
+                <button
+                  onClick={() => handleNav(link.id)}
+                  className="block w-full text-left py-3 text-text-dim hover:text-neon-cyan transition-colors font-mono text-sm uppercase tracking-wider"
                 >
                   {link.name}
-                </a>
+                </button>
               </li>
             ))}
           </motion.ul>

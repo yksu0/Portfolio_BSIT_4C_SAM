@@ -43,16 +43,24 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 px-6 bg-gray-50 dark:bg-gray-950">
-      <div className="max-w-2xl mx-auto">
+    <section id="contact" className="snap-section flex items-center px-6 py-20">
+      {/* Background image */}
+      <div
+        className="section-bg"
+        style={{ backgroundImage: "url('zaki-aby-city-view-sunset.jpg')" }}
+      />
+
+      <div className="absolute inset-0 cyber-grid opacity-20 z-[2]" />
+
+      <div className="relative z-10 max-w-2xl mx-auto w-full">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-4"
+          className="text-4xl font-bold font-display text-center mb-4"
         >
-          Get In Touch
+          <span className="gradient-text">Get In Touch</span>
         </motion.h2>
 
         <motion.p
@@ -60,9 +68,9 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-center text-gray-600 dark:text-gray-400 mb-12"
+          className="text-center text-text-muted font-mono text-sm mb-12"
         >
-          Have a question or want to work together? Send me a message!
+          &gt; open contact_form.exe --send-message
         </motion.p>
 
         <motion.form
@@ -74,7 +82,7 @@ export default function Contact() {
           className="space-y-6"
         >
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label htmlFor="name" className="block text-sm font-mono text-neon-cyan mb-2 uppercase tracking-wider">
               Name
             </label>
             <input
@@ -84,13 +92,14 @@ export default function Contact() {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+              className="w-full px-4 py-3 rounded-lg border border-border-cyber text-text focus:border-neon-cyan outline-none transition-all font-mono text-sm backdrop-blur-md"
+              style={{ background: "rgba(11,11,30,0.88)" }}
               placeholder="Your name"
             />
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label htmlFor="email" className="block text-sm font-mono text-neon-cyan mb-2 uppercase tracking-wider">
               Email
             </label>
             <input
@@ -100,13 +109,14 @@ export default function Contact() {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+              className="w-full px-4 py-3 rounded-lg border border-border-cyber text-text focus:border-neon-cyan outline-none transition-all font-mono text-sm backdrop-blur-md"
+              style={{ background: "rgba(11,11,30,0.88)" }}
               placeholder="your@email.com"
             />
           </div>
 
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label htmlFor="message" className="block text-sm font-mono text-neon-cyan mb-2 uppercase tracking-wider">
               Message
             </label>
             <textarea
@@ -115,8 +125,9 @@ export default function Contact() {
               value={formData.message}
               onChange={handleChange}
               required
-              rows={5}
-              className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all resize-none"
+              rows={4}
+              className="w-full px-4 py-3 rounded-lg border border-border-cyber text-text focus:border-neon-cyan outline-none transition-all font-mono text-sm resize-none backdrop-blur-md"
+              style={{ background: "rgba(11,11,30,0.88)" }}
               placeholder="Your message..."
             />
           </div>
@@ -124,18 +135,19 @@ export default function Contact() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 px-6 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-semibold rounded-xl transition-colors"
+            className="w-full py-3 px-6 disabled:opacity-50 text-neon-pink font-display font-bold rounded-lg border transition-all uppercase tracking-wider text-sm glow-pink"
+            style={{ background: "rgba(255,62,165,0.12)", borderColor: "rgba(255,62,165,0.45)" }}
           >
-            {loading ? "Sending..." : "Send Message"}
+            {loading ? "Transmitting..." : "Send Message"}
           </button>
 
           {status === "success" && (
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="text-green-600 dark:text-green-400 text-center font-medium"
+              className="text-neon-green text-center font-mono text-sm"
             >
-              Message sent successfully! I&apos;ll get back to you soon.
+              &gt; Message transmitted successfully! Awaiting response...
             </motion.p>
           )}
 
@@ -143,9 +155,9 @@ export default function Contact() {
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="text-red-600 dark:text-red-400 text-center font-medium"
+              className="text-neon-pink text-center font-mono text-sm"
             >
-              Something went wrong. Please try again later.
+              &gt; ERROR: Transmission failed. Retry later.
             </motion.p>
           )}
         </motion.form>
@@ -155,13 +167,13 @@ export default function Contact() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="flex justify-center gap-6 mt-12"
+          className="flex justify-center gap-6 mt-10"
         >
           <a
             href="https://github.com/yksu0"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+            className="text-text-muted hover:text-neon-pink transition-colors"
             aria-label="GitHub"
           >
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -170,7 +182,7 @@ export default function Contact() {
           </a>
           <a
             href="mailto:your@email.com"
-            className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+            className="text-text-muted hover:text-neon-cyan transition-colors"
             aria-label="Email"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
