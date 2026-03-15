@@ -33,6 +33,7 @@ const projects = [
     features: [
       "Product catalog with search & filters",
       "Shopping cart with quantity controls",
+      "Paypal Sandbox integration for payments",
       "User registration & authentication",
       "Admin dashboard for inventory management",
     ],
@@ -56,13 +57,18 @@ const projects = [
       "Membership plan & payment tracking",
       "Attendance logging system",
       "Analytics dashboard with reports",
+      "QR code check-in system for members",
     ],
     screenshots: [
-      { label: "Dashboard Overview", placeholder: true },
-      { label: "Member Management", placeholder: true },
-      { label: "Payment Records", placeholder: true },
+      { label: "Admin Dashboard", src: "/images/Gym/admin dashboard gym.png" },
+      { label: "Analytics", src: "/images/Gym/analytics gym.png" },
+      { label: "Member Dashboard", src: "/images/Gym/memberdahsboardgym.png" },
+      { label: "Member Profile", src: "/images/Gym/member5.png" },
+      { label: "Payment Records", src: "/images/Gym/payment gym.png" },
+      { label: "QR Code Check-in", src: "/images/Gym/qr code.png" },
     ],
     tech: ["PHP", "MySQL", "HTML", "CSS"],
+    cover: "/images/Gym/admin dashboard gym.png",
     accent: { border: "rgba(201,78,240,0.35)", glow: "rgba(201,78,240,0.18)", text: "#c94ef0", bg: "rgba(201,78,240,0.1)" },
   },
   {
@@ -70,19 +76,19 @@ const projects = [
     description:
       "An IoT-powered hydroponics monitoring system that tracks water levels, pH, and nutrient data in real-time.",
     details:
-      "Engineered an IoT monitoring solution for hydroponics farming using sensors to collect real-time data on water levels, pH balance, temperature, and nutrient concentration. Data is transmitted to a Supabase backend for storage and displayed on a live web dashboard with historical charts. The system includes configurable alert thresholds that notify users when parameters go out of optimal range.",
+      "Engineered an IoT monitoring solution for hydroponics farming using sensors to collect real-time data on water levels, pH balance, and nutrient concentration. Data is transmitted on a live LCD display. The system includes configurable alert thresholds that notify users when parameters go out of optimal range.",
     features: [
-      "Real-time sensor data collection",
-      "Live dashboard with historical charts",
       "Configurable alert thresholds",
-      "Supabase backend for data storage",
+      "C++ Real-time data coding for microcontroller",
     ],
     screenshots: [
-      { label: "Live Dashboard", placeholder: true },
-      { label: "Sensor Readings", placeholder: true },
-      { label: "Alert Configuration", placeholder: true },
+      { label: "Circuit Setup", src: "/images/Hydro/circuit.jpg" },
+      { label: "Development", src: "/images/Hydro/develop.jpg" },
+      { label: "Sensor Readings", src: "/images/Hydro/reading.jpg" },
+      { label: "Water Monitoring", src: "/images/Hydro/water.jpg" },
     ],
     tech: ["Python", "IoT", "Supabase"],
+    cover: "/images/Hydro/reading.jpg",
     accent: { border: "rgba(80,255,48,0.35)", glow: "rgba(80,255,48,0.18)", text: "#50ff30", bg: "rgba(80,255,48,0.1)" },
   },
 ];
@@ -98,6 +104,7 @@ const cardVariants = {
 
 export default function Projects() {
   const [selected, setSelected] = useState(null);
+  const [zoomed, setZoomed] = useState(null);
 
   return (
     <section id="projects" className="snap-section flex items-center px-6 py-20">
@@ -148,12 +155,16 @@ export default function Projects() {
                   className="relative h-44 flex items-center justify-center overflow-hidden"
                   style={{ background: `linear-gradient(135deg, ${a.bg}, rgba(11,11,30,0.9))` }}
                 >
-                  <div className="text-text-muted text-sm font-mono">
-                    <svg className="w-14 h-14 mx-auto mb-2 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                    <span className="opacity-30">[ screenshot ]</span>
-                  </div>
+                  {project.cover ? (
+                    <img src={project.cover} alt={project.title} className="w-full h-full object-cover" />
+                  ) : (
+                    <div className="text-text-muted text-sm font-mono">
+                      <svg className="w-14 h-14 mx-auto mb-2 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                      <span className="opacity-30">[ screenshot ]</span>
+                    </div>
+                  )}
                   {/* Click hint overlay */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: "rgba(11,11,30,0.6)" }}>
                     <span className="font-mono text-sm px-4 py-2 rounded border" style={{ color: a.text, borderColor: a.text }}>
@@ -258,12 +269,21 @@ export default function Projects() {
                       className="rounded-lg border overflow-hidden aspect-video flex items-center justify-center"
                       style={{ borderColor: selected.accent.border, background: `linear-gradient(135deg, ${selected.accent.bg}, rgba(11,11,30,0.9))` }}
                     >
-                      <div className="text-center">
-                        <svg className="w-8 h-8 mx-auto mb-1 opacity-30 text-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
-                        <span className="text-[10px] font-mono text-text-muted opacity-50">{ss.label}</span>
-                      </div>
+                      {ss.src ? (
+                        <img
+                          src={ss.src}
+                          alt={ss.label}
+                          className="w-full h-full object-cover cursor-pointer hover:scale-105 transition-transform duration-200"
+                          onClick={(e) => { e.stopPropagation(); setZoomed(ss); }}
+                        />
+                      ) : (
+                        <div className="text-center">
+                          <svg className="w-8 h-8 mx-auto mb-1 opacity-30 text-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                          </svg>
+                          <span className="text-[10px] font-mono text-text-muted opacity-50">{ss.label}</span>
+                        </div>
+                      )}
                     </div>
                   ))}
                 </div>
@@ -304,6 +324,40 @@ export default function Projects() {
                 </button>
               </div>
             </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Image lightbox */}
+      <AnimatePresence>
+        {zoomed && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[200] flex items-center justify-center p-4 cursor-pointer"
+            onClick={() => setZoomed(null)}
+          >
+            <div className="absolute inset-0 bg-black/90 backdrop-blur-sm" />
+            <motion.img
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.25 }}
+              src={zoomed.src}
+              alt={zoomed.label}
+              className="relative max-w-[90vw] max-h-[90vh] object-contain rounded-lg"
+              onClick={(e) => e.stopPropagation()}
+            />
+            <button
+              onClick={() => setZoomed(null)}
+              className="absolute top-6 right-6 z-10 w-10 h-10 rounded-full border border-white/30 flex items-center justify-center font-mono text-lg text-white/70 hover:text-white hover:border-white transition-colors"
+              style={{ background: "rgba(0,0,0,0.5)" }}
+            >
+              ✕
+            </button>
+            <p className="absolute bottom-6 font-mono text-xs text-white/50">{zoomed.label}</p>
           </motion.div>
         )}
       </AnimatePresence>

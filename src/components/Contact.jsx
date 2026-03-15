@@ -181,7 +181,7 @@ export default function Contact() {
             </svg>
           </a>
           <a
-            href="mailto:your@email.com"
+            href="mailto:yugihosantillan@gmail.com"
             className="text-text-muted hover:text-neon-cyan transition-colors"
             aria-label="Email"
           >
