@@ -209,3 +209,43 @@ This project will be evaluated based on the following criteria:
 # Expected Outcome
 
 By completing this project, I will have a **fully functional and professionally designed portfolio website** that demonstrates both my technical skills and my ability to build modern web applications.
+
+---
+
+# Credits
+
+## Background Artwork
+
+The background images used across sections of this website are artworks by:
+
+- **Creatiflux** — CG Artist
+  - [ArtStation Profile](https://www.artstation.com/creatiflux)
+
+All background artwork is used for personal/educational portfolio purposes. Full credit goes to the original artist.
+
+## Music
+
+The music player features the following tracks:
+
+| Track | Artist |
+|---|---|
+| I Really Want to Stay At Your House | Rosa Walton |
+| Let You Down | Dawid Podsiadło |
+| Little Stranger | Dawid Podsiadło |
+
+All music is the property of its respective artists and labels. Used for personal/educational purposes only.
+
+## Technologies & Libraries
+
+This project was built using open-source tools and libraries created by their respective communities:
+
+| Technology | Purpose | Link |
+|---|---|---|
+| Next.js | React framework | [nextjs.org](https://nextjs.org) |
+| React | UI library | [react.dev](https://react.dev) |
+| Tailwind CSS | Utility-first CSS framework | [tailwindcss.com](https://tailwindcss.com) |
+| Framer Motion | Animation library | [framer.com/motion](https://www.framer.com/motion/) |
+| Supabase | Backend-as-a-service (database) | [supabase.com](https://supabase.com) |
+| Node.js | JavaScript runtime | [nodejs.org](https://nodejs.org) |
+| Vercel | Deployment platform | [vercel.com](https://vercel.com) |
+| Google Fonts (Orbitron) | Display font | [fonts.google.com](https://fonts.google.com/specimen/Orbitron) |
