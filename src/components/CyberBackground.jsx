@@ -19,7 +19,7 @@ function getClipPath(type) {
 
 export default function CyberBackground() {
   return (
-    <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+    <div className="fixed inset-0 z-[2] overflow-hidden pointer-events-none">
       {/* Floating geometric shapes */}
       {shapes.map((shape, i) => (
         <motion.div
