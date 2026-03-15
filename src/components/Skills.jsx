@@ -44,8 +44,21 @@ const cardVariants = {
   }),
 };
 
+// Utility to detect mobile
+function isMobile() {
+  if (typeof window === "undefined") return false;
+  return window.matchMedia("(pointer: coarse)").matches;
+}
+
 export default function Skills() {
   const [hovered, setHovered] = useState(null);
+
+  // Track tap for mobile
+  const handleSkillClick = (i) => {
+    if (isMobile()) {
+      setHovered(hovered === i ? null : i);
+    }
+  };
 
   return (
     <section id="skills" className="snap-section flex items-center px-6 py-20">
@@ -94,6 +107,7 @@ export default function Skills() {
                 onHoverEnd={() => setHovered(null)}
                 className="relative backdrop-blur-md rounded-lg p-5 border border-border-cyber hover:border-neon-cyan transition-all cursor-default"
                 style={{ background: "rgba(11,11,30,0.88)", zIndex: hovered === i ? 50 : 1 }}
+                onClick={() => handleSkillClick(i)}
               >
                 <h3 className="font-mono font-semibold text-text text-sm mb-3 uppercase tracking-wider">
                   {skill.name}
