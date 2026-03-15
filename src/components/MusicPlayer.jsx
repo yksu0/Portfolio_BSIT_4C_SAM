@@ -94,7 +94,7 @@ export default function MusicPlayer() {
 
   return (
     <div
-      className="fixed bottom-3 left-3 z-[90] flex items-center gap-3 px-4 py-2.5 rounded-lg border border-border-cyber backdrop-blur-xl font-mono"
+      className="fixed bottom-3 left-3 z-[90] flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg border border-border-cyber backdrop-blur-xl font-mono scale-[0.8] sm:scale-100 origin-bottom-left"
       style={{ background: "rgba(11,11,30,0.88)", boxShadow: "0 0 20px rgba(0,245,255,0.08)" }}
     >
       <audio ref={audioRef} preload="metadata">
@@ -142,9 +142,11 @@ export default function MusicPlayer() {
 
       {/* Track info + progress */}
       <div className="min-w-0 max-w-[140px]">
-        <p className="text-[11px] text-text truncate leading-tight">
-          {current.title}
-        </p>
+        <div className="overflow-hidden">
+          <p className={`text-[11px] text-text whitespace-nowrap leading-tight ${current.title.length > 18 ? 'animate-marquee' : ''}`}>
+            {current.title}
+          </p>
+        </div>
         <p className="text-[9px] text-text-muted truncate leading-tight">
           {current.artist}
         </p>
