@@ -5,10 +5,10 @@ import Image from "next/image";
 
 const projects = [
   {
-    title: "Gym Management System",
+    title: "Custom GRUB Menu for Multiboot System",
     description:
-      "A comprehensive system for managing gym memberships, schedules, and member tracking with an intuitive dashboard.",
-    tech: ["PHP", "MySQL", "HTML", "CSS"],
+      "A custom GRUB menu configuration for managing multiple operating systems on a single machine.",
+    tech: ["Bash", "Linux", "GRUB"],
     image: "/images/project-placeholder.svg",
     github: "#",
   },
@@ -21,10 +21,10 @@ const projects = [
     github: "#",
   },
   {
-    title: "QR Code Attendance System",
+    title: "Gym Management System",
     description:
-      "A QR-based attendance tracking system that allows quick check-in and real-time attendance monitoring.",
-    tech: ["Python", "Django", "JavaScript"],
+      "A comprehensive system for managing gym memberships, schedules, and member tracking with an intuitive dashboard.",
+    tech: ["PHP", "MySQL", "HTML", "CSS"],
     image: "/images/project-placeholder.svg",
     github: "#",
   },
@@ -75,7 +75,6 @@ export default function Projects() {
             >
               <div className="relative h-48 bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
                 <div className="text-gray-400 dark:text-gray-500 text-sm">
-                  {/* Replace placeholder with actual project screenshot */}
                   <svg className="w-16 h-16 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>

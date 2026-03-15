@@ -158,7 +158,7 @@ export default function Contact() {
           className="flex justify-center gap-6 mt-12"
         >
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/yksu0"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"

@@ -3,18 +3,18 @@
 import { motion } from "framer-motion";
 
 const skills = [
-  { name: "HTML", level: 90, color: "bg-orange-500" },
-  { name: "CSS", level: 85, color: "bg-blue-500" },
-  { name: "JavaScript", level: 80, color: "bg-yellow-500" },
-  { name: "PHP", level: 75, color: "bg-indigo-500" },
-  { name: "Python", level: 70, color: "bg-green-500" },
-  { name: "Django", level: 65, color: "bg-emerald-600" },
-  { name: "MySQL", level: 75, color: "bg-cyan-600" },
-  { name: "Supabase", level: 60, color: "bg-teal-500" },
-  { name: "Git / GitHub", level: 80, color: "bg-gray-700" },
-  { name: "Next.js", level: 70, color: "bg-black dark:bg-white" },
-  { name: "React", level: 70, color: "bg-sky-500" },
-  { name: "Tailwind CSS", level: 80, color: "bg-cyan-400" },
+  { name: "HTML", level: 50, color: "bg-orange-500" },
+  { name: "CSS", level: 50, color: "bg-blue-500" },
+  { name: "JavaScript", level: 50, color: "bg-yellow-500" },
+  { name: "PHP", level: 50, color: "bg-indigo-500" },
+  { name: "Python", level: 50, color: "bg-green-500" },
+  { name: "Django", level: 50, color: "bg-emerald-600" },
+  { name: "MySQL", level: 50, color: "bg-cyan-600" },
+  { name: "Supabase", level: 50, color: "bg-teal-500" },
+  { name: "Git / GitHub", level: 50, color: "bg-gray-700" },
+  { name: "Next.js", level: 50, color: "bg-black dark:bg-white" },
+  { name: "React", level: 50, color: "bg-sky-500" },
+  { name: "Tailwind CSS", level: 50, color: "bg-cyan-400" },
 ];
 
 const cardVariants = {
